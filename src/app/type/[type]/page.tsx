@@ -24,3 +24,11 @@ export default async function PokemonList({
     </div>
   );
 }
+
+export async function generateStaticParams() {
+  const pokemonTypes = await getPokemonTypes();
+
+  return pokemonTypes.results.map(({ name }) => ({
+    type: name,
+  }));
+}
