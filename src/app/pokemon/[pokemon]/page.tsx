@@ -2,6 +2,13 @@ import { getPokemonByName } from "@/server/fetch";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 
+export const dynamic = "auto",
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = "auto",
+  runtime = "nodejs",
+  preferredRegion = "auto";
+
 export default async function PokemonDetail({
   params,
 }: {

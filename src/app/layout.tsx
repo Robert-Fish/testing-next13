@@ -3,6 +3,13 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import "../../styles/globals.css";
 
+export const dynamic = "auto",
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = "auto",
+  runtime = "nodejs",
+  preferredRegion = "auto";
+
 export default async function RootLayout({
   children,
 }: {
