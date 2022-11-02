@@ -1,23 +1,22 @@
-import Pokedex, { Type } from "pokedex-promise-v2";
-
 export const getPokemonTypes = async () => {
-  const P = new Pokedex();
-
-  try {
-    return await P.getTypesList();
-  } catch (error) {
-    throw error;
-  }
+  return (await (
+    await fetch("https://pokeapi.co/api/v2/type")
+  ).json()) as TypeResults;
 };
 
 export const getPokemonByType = async (type: string) => {
-  const P = new Pokedex();
-  return (await P.getTypeByName(type)) as Type;
+  const respose = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+
+  if (respose.ok) {
+    return respose.json() as PokemonByTypeResults;
+  }
+  return [] as PokemonByTypeResults;
 };
 
 export const getPokemonByName = async (name: string) => {
-  const P = new Pokedex();
-  return (await P.getPokemonByName(name)) as PokemonDetail;
+  return (await (
+    await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+  ).json()) as PokemonDetail;
 };
 
 export interface PokemonDetail {
