@@ -5,13 +5,23 @@ export const getCharacters = async () => {
 };
 
 export interface CharactersList {
-  results: CharactersListResult[];
+  results: Character[];
 }
 
-export interface CharactersListResult {
+export interface Character {
   name: string;
   url: string;
+  height: string;
+  hair_color: string;
+  birth_year: string;
+  eye_color: string;
 }
+
+export const getCharacterDetails = async (id: number) => {
+  return (await (
+    await fetch(`https://swapi.dev/api/people/${id}`)
+  ).json()) as Character;
+};
 
 export const getShips = async () => {
   return (await (
@@ -20,10 +30,10 @@ export const getShips = async () => {
 };
 
 export interface SpaceshipList {
-  results: SpaceshipListResult[];
+  results: Spaceship[];
 }
 
-export interface SpaceshipListResult {
+export interface Spaceship {
   name: string;
   url: string;
   manufacturer: string;

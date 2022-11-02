@@ -19,3 +19,11 @@ export default async function Characters() {
     </div>
   );
 }
+
+export async function generateStaticParams() {
+  const characters = await getCharacters();
+
+  return characters.results.map(({ url }) => ({
+    slug: `/characters/${url.substring(url.indexOf("people/") + 7)}`,
+  }));
+}
