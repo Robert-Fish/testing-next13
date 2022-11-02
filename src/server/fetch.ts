@@ -1,7 +1,7 @@
 export const getCharacters = async () => {
-  return (await (
-    await fetch("https://swapi.dev/api/people")
-  ).json()) as CharactersList;
+  const res = await fetch("https://swapi.dev/api/people");
+  const data = await res.json();
+  return data as CharactersList;
 };
 
 export interface CharactersList {
@@ -18,15 +18,15 @@ export interface Character {
 }
 
 export const getCharacterDetails = async (id: number) => {
-  return (await (
-    await fetch(`https://swapi.dev/api/people/${id}`)
-  ).json()) as Character;
+  const res = await fetch(`https://swapi.dev/api/people/${id}`);
+  const data = await res.json();
+  return data as Character;
 };
 
 export const getShips = async () => {
-  return (await (
-    await fetch("https://swapi.dev/api/starships")
-  ).json()) as SpaceshipList;
+  const res = await fetch("https://swapi.dev/api/starships");
+  const data = await res.json();
+  return data as SpaceshipList;
 };
 
 export interface SpaceshipList {
@@ -36,5 +36,13 @@ export interface SpaceshipList {
 export interface Spaceship {
   name: string;
   url: string;
+  model: string;
   manufacturer: string;
+  crew: string;
 }
+
+export const getShipDetails = async (id: number) => {
+  const res = await fetch(`https://swapi.dev/api/starships/${id}`);
+  const data = await res.json();
+  return data as Spaceship;
+};

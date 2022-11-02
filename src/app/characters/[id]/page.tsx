@@ -1,6 +1,5 @@
 import { getCharacterDetails } from "@/server/fetch";
 import Link from "next/link";
-import React from "react";
 
 export default async function CharacterDetail({
   params,

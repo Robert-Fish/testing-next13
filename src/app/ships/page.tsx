@@ -22,3 +22,11 @@ export default async function Ships() {
     </div>
   );
 }
+
+export async function generateStaticParams() {
+  const characters = await getShips();
+
+  return characters.results.map(({ url }) => ({
+    slug: `/ships/${url.substring(url.indexOf("ships/") + 6)}`,
+  }));
+}
