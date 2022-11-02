@@ -7,7 +7,7 @@ export default async function Characters() {
   return (
     <div className="grid grid-cols-4 gap-4 p-4">
       {characters.results.map(({ name, url }) => (
-        <Link href={`/character/${url.substring(url.indexOf("people/") + 6)}`}>
+        <Link href={`/characters/${url.substring(url.indexOf("people/") + 7)}`}>
           <div
             className="bg-white p-3 text-center drop-shadow-md hover:bg-red-500 hover:text-white transition-all"
             key={name}
