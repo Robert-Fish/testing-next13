@@ -26,11 +26,6 @@ export default async function RootLayout({
                 Ships
               </li>
             </Link>
-            <Link href="/">
-              <li className="text-center uppercase hover:underline hover:text-red-600 py-2">
-                Films
-              </li>
-            </Link>
           </ul>
         </main>
         <section className="flex-grow bg-gray-100 w-11/12">{children}</section>
